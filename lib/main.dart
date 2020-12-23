@@ -75,27 +75,43 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
             SizedBox(
-              height: 350,
+              height: 300,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 RaisedButton(
-                  child: Text(
-                      "Stop",
-                      style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
+                  onPressed: (){},
+                  color: Colors.black,
+                  shape: CircleBorder(
+                      side: BorderSide(color: Colors.orange),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(40.0),
+                    child: Text(
+                        "Stop",
+                        style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 24,
+                      ),
                     ),
                   ),
                 ),
                 RaisedButton(
-                  child: Text(
+                  onPressed: (){},
+                  color: Colors.orange,
+                  shape: CircleBorder(
+                    side: BorderSide(color: Colors.orange),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(40.0),
+                    child: Text(
                       "Start",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 24,
                       ),
+                    ),
                   ),
                 ),
               ],
