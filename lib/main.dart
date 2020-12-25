@@ -25,29 +25,38 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _seconds = 90;
+  int _seconds = 10;
   int _minutes = 0;
   Timer _timer;
   var f = NumberFormat("00", "en_US");
   void _startTimer() {
-    _minutes = (_seconds / 60).floor();
-    _seconds = 90 - (_minutes * 60);
+
 
     if (_timer != null) {
       _timer.cancel();
     }
+    if (_minutes > 0 ){
+      _seconds = _minutes * 60;
+
+    }
+    if (_seconds > 60){
+      _minutes = (_seconds / 60).floor();
+      _seconds -= (_minutes * 60);
+    }
     _timer = Timer.periodic(Duration(seconds: 1), (timer) {
       setState(() {
-        if (_seconds > 1) {
+        if (_seconds > 0) {
           _seconds--;
         }
-        else if (_seconds == 1 && _minutes > 0 ){
-          _minutes-=1;
-          _seconds = 60;
-
-        }
-        else if (_seconds == 0 && _minutes < 0){
-          _timer.cancel();
+        else{
+          if (_minutes > 0){
+            _seconds = 59;
+            _minutes--;
+          }
+          else {
+            _timer.cancel();
+            print("Timer Completed");
+          }
         }
       });
     });
