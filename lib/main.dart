@@ -7,7 +7,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -25,8 +24,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _seconds = 10;
-  int _minutes = 0;
+  int _seconds = 00;
+  int _minutes = 25;
   Timer _timer;
   var f = NumberFormat("00", "en_US");
   void _startTimer() {
@@ -94,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     if (_timer != null) {
                       setState(() {
                         _timer.cancel();
-                        _minutes = 0;
+                        _minutes = 25;
                         _seconds = 0;
                       });
                     }
